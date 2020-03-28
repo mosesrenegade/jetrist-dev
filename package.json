@@ -1,0 +1,22 @@
+{
+  "name": "jetrist-dev",
+  "version": "1.0.0",
+  "description": "dev",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosesrenegade/jetrist-dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mosesrenegade/jetrist-dev/issues"
+  },
+  "homepage": "https://github.com/mosesrenegade/jetrist-dev#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

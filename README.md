@@ -1,2 +1,1 @@
-# jetrist-dev
-Figure it out
+Gotta figure this one out
