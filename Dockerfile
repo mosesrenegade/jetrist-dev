@@ -7,5 +7,6 @@ USER node
 RUN npm install
 COPY --chown=node:node . .
 
+
 EXPOSE 3001
 CMD ["node", "app.js"]
