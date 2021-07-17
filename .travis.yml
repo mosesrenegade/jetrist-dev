@@ -4,7 +4,7 @@ services:
   - docker
 
 install:
-  - echo "install nothing!" # put your normal pre-testing installs here
+  - echo "install nothing!" # put your normal pre-testing installs here derp
 
 script:
   - echo "no tests!" # put your normal testing scripts here
