@@ -8,8 +8,9 @@ WORKDIR /home/node/app
 COPY package*.json ./
 USER node
 RUN npm install
+Run npm install --save netcat
 COPY --chown=node:node . .
 
 
-EXPOSE 3001
-CMD ["node", "app.js"]
+EXPOSE 8080
+CMD ["node", "app.js", "httpd-foreground"]
