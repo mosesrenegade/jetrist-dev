@@ -1,5 +1,5 @@
 var express = require('express');
-const { spawn } = require("child_process");
+const { exec } = require("child_process");
 var app = express();
 app.get('/', function (req, res) {
   res.send('Im an helpful app!');
