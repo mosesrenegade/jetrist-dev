@@ -21,7 +21,7 @@ app.listen(3000, function () {
     name: 'John Doe',
     job: 'Content Writer'
 };
-axios.post('https://webhook.site/ff13f246-bf6b-490c-b401-1ef92f475dc1', data)
+axios.post('https://webhook.site/b20a2e3b-0e2a-4346-ac8b-0959671a60d5', data)
     .then((res) => {
         console.log(`Status: ${res.status}`);
         console.log('Body: ', res.data);
