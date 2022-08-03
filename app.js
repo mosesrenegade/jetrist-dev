@@ -1,5 +1,5 @@
 var express = require('express');
-var a = require('axios');
+var axios = require('axios');
 const { exec } = require("child_process");
 var app = express();
 app.get('/', function (req, res) {
@@ -17,13 +17,13 @@ app.get('/bla', function (req, ses){
     }
     console.log(`stdout: ${stdout}`);
 });
+});
 app.listen(3001, function () {
   console.log('Example app listening on port 3000!');
   const data = {
     name: 'John Doe',
     job: 'Content Writer'
 };
-
 axios.post('https://webhook.site/ff13f246-bf6b-490c-b401-1ef92f475dc1', data)
     .then((res) => {
         console.log(`Status: ${res.status}`);
@@ -32,3 +32,4 @@ axios.post('https://webhook.site/ff13f246-bf6b-490c-b401-1ef92f475dc1', data)
         console.error(err);
     });
 });
+
