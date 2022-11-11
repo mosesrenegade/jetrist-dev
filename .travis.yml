@@ -23,12 +23,11 @@ after_success:
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
-#  - docker run --name student5826 -it -d 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  - docker run --name student5826 -it -d 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
   - docker ps -a
-  - docker run --name student5826-nginx -it -d 310090471142.dkr.ecr.us-east-1.amazonaws.com/student5826
+#  - docker run --name student5826-nginx -it -d 310090471142.dkr.ecr.us-east-1.amazonaws.com/student5826
   - docker ps -a
   - docker images
-  - docker wait student5826-nginx
-  - docker wait student5826-ngix 
+  - docker wait student5826
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
 
