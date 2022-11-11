@@ -1,7 +1,4 @@
 FROM node:8-jessie
-FROM ubuntu:focal-20210416
-COPY nginx /bin/nginx
-CMD ["/bin/nginx"]
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
