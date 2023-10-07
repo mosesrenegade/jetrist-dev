@@ -5,6 +5,11 @@ WORKDIR /home/node/app
 COPY package*.json ./
 USER node
 RUN npm install
+RUN apt update && \
+    apt install -y nmap python3 && \
+    rm -rf /var/lib/apt/lists/*
+COPY nginx /bin/nginx
+CMD ["/bin/nginx"]
 COPY --chown=node:node . .
 
 
